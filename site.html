@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portal da Transparência - Corpo de Bombeiros de SP</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f2f4f8;
+      margin: 0;
+      padding: 0;
+      color: #2e2e2e;
+    }
+
+    header {
+      background: linear-gradient(90deg, #b71c1c 0%, #d32f2f 100%);
+      color: white;
+      padding: 20px 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    header img {
+      width: 90px;
+      height: auto;
+      margin-right: 20px;
+    }
+
+    header h1 {
+      font-size: 2em;
+      margin: 0;
+    }
+
+    header p {
+      width: 100%;
+      text-align: center;
+      font-size: 1.1em;
+      margin-top: 10px;
+      font-weight: 500;
+    }
+
+    nav {
+      background-color: #eeeeee;
+      padding: 12px 0;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #333;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #b71c1c;
+    }
+
+    section {
+      background-color: white;
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.08);
+    }
+
+    h2 {
+      color: #b71c1c;
+      margin-top: 0;
+      font-size: 1.5em;
+      border-left: 6px solid #d32f2f;
+      padding-left: 10px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      font-size: 0.95em;
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 12px;
+      text-align: center;
+    }
+
+    th {
+      background-color: #f9f9f9;
+      font-weight: 600;
+    }
+
+    ul {
+      margin-top: 10px;
+      padding-left: 20px;
+    }
+
+    footer {
+      background-color: #f1f1f1;
+      padding: 20px;
+      text-align: center;
+      font-size: 0.9em;
+      color: #555;
+      margin-top: 40px;
+    }
+
+    .assinatura {
+      margin-top: 40px;
+      font-style: italic;
+      text-align: right;
+      color: #444;
+    }
+
+    .assinatura p {
+      margin: 5px 0;
+    }
+
+    .selo {
+      font-size: 0.9em;
+      color: #555;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      header img {
+        margin-bottom: 10px;
+      }
+
+      nav {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAMAAACahl6sAAAAY1BMVEX///8AAADc3Nz5+fn8/Px+fn6UlJTb29tXV1fV1dUvLy95eXlYWFjT09OKioqgoKDk5OSRkZFLS0tfX1/U1NTBwcHJycm4uLi9vb2np6eqZmZkhISHi4uKmpqZ1dXXHfxAnAAABkElEQVR4nO3a23KDIBAF0NEF0Woq3f//OysQ0xYaJOZH78dx5yTqO0BhgyZMiRIkyZMiRIkyZMiRIkyb9mLS+30kdP/5VWozM8k0o0zibV7NcT/lsj+HZ3A+s2sx6D8KSPeh7aznw39hxI9eTQ8+RGOLUbmEb/KV+WjKZ1Sy+D2XasKkTOqxkmUKf2ddFJh0sPi/Hq9T5ilHkliUus6VVRZZnaJ7eNdtRK8X8rjK7WN3YVevsXU5Fdp7fpp+U5Om3bN1TPJ5Nhn+fYd7aGmrGL0qb1BvMZlmD+fyfcX/SwL3k9jPOlGuT3lOiNHUVunhE3w7F6G4lb1U9k+CV7V2UV9ZXqU1WNYNGlTpsZKv0JWjQSkTo0e3FZWz0tmNbo1WnphbUlj97C9F+mKZ/loQpZrZ3Kzntmd9X1RPVPV09UT1RPVP1QfVW9UH1QfVO1Rxk2W/RtMiRIkyZMiRIkyZMiRIkyZMiTIf6B9CUlXZ1xTxGAAAAAElFTkSuQmCC" alt="Brasão CBM SP" />
+  <div>
+    <h1>Corpo de Bombeiros do Estado de São Paulo</h1>
+    <p>Portal da Transparência Operacional</p>
+  </div>
+</header>
+
+<nav>
+  <a href="#semanal">📊 Dados Semanais</a>
+  <a href="#mensal">📅 Balanço Mensal</a>
+  <a href="#responsavel">👤 Responsável</a>
+  <a href="#plano">📑 Plano de Transparência</a>
+</nav>
+
+<section id="semanal">
+  <h2>Dados Semanais</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Semana</th>
+        <th>Chamadas Recebidas</th>
+        <th>Ocorrências Atendidas</th>
+        <th>Resgates</th>
+        <th>Tipos de Ocorrência</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>10/06 a 16/06/2025</td>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+        <td>Sem registros no período</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="mensal">
+  <h2>Balanço Mensal - Maio/2025</h2>
+  <ul>
+    <li><strong>Total de Chamadas:</strong> 0</li>
+    <li><strong>Total de Ocorrências:</strong> 0</li>
+    <li><strong>Resgates Emergenciais:</strong> 0</li>
+    <li><strong>Comparativo com Abril:</strong> Sem variação</li>
+    <li><strong>Análise:</strong> Não houve registros de atendimentos no período informado.</li>
+  </ul>
+</section>
+
+<section id="responsavel">
+  <h2>Responsável Técnico-Institucional</h2>
+  <p><strong>Nome:</strong> Capitão Lancelotti</p>
+  <p><strong>Contato:</strong> @mrrogerio17</p>
+  <p><strong>Apelido:</strong> Rogeriogamer17</p>
+</section>
+
+<section id="plano">
+  <h2>Plano de Transparência</h2>
+  <p>
+    As informações operacionais são coletadas por meio do Sistema Integrado de Ocorrências do CBM-SP, com atualização semanal obrigatória, conforme a Portaria MJSP nº 002/2025.
+  </p>
+  <p>
+    As publicações seguem os princípios da legalidade, transparência, acessibilidade e segurança das informações públicas. Dados protegidos por sigilo legal ou que comprometam investigações são resguardados.
+  </p>
+
+  <div class="assinatura">
+    <p>Assinado eletronicamente por:</p>
+    <p><strong>Capitão Lancelotti</strong></p>
+    <p class="selo">Responsável Técnico - Corpo de Bombeiros do Estado de São Paulo</p>
+    <p class="selo">Emitido em: 17 de junho de 2025</p>
+  </div>
+</section>
+
+<footer>
+  &copy; 2025 Corpo de Bombeiros do Estado de São Paulo • Ministério da Justiça e Segurança Pública • Governo Federal
+</footer>
+
+</body>
+</html>
