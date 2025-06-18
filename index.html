@@ -1,23 +1,55 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Portal da Transparência - Corpo de Bombeiros Militar do Estado de São Paulo</title> 
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portal da Transparência - Corpo de Bombeiros Militar do Estado de São Paulo</title>
   <style>
+    :root {
+      --color-bg-light: #f5f5f5;
+      --color-text-light: #333;
+      --color-header-bg-light: #cc0000;
+      --color-nav-bg-light: #a40000;
+      --color-section-bg-light: #fff;
+      --color-footer-bg-light: #eeeeee;
+      --color-text-muted-light: #777;
+      --color-border-light: #ccc;
+
+      --color-bg-dark: #121212;
+      --color-text-dark: #e0e0e0;
+      --color-header-bg-dark: #b22222;
+      --color-nav-bg-dark: #7a0000;
+      --color-section-bg-dark: #1e1e1e;
+      --color-footer-bg-dark: #222222;
+      --color-text-muted-dark: #999;
+      --color-border-dark: #444;
+    }
+
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f5f5f5;
       margin: 0;
       padding: 0;
-      color: #333;
+      background-color: var(--color-bg-light);
+      color: var(--color-text-light);
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    body.dark-mode {
+      background-color: var(--color-bg-dark);
+      color: var(--color-text-dark);
     }
 
     header {
-      background-color: #cc0000;
+      background-color: var(--color-header-bg-light);
       color: white;
       padding: 30px 20px;
       text-align: center;
+      position: relative;
+      transition: background-color 0.3s ease;
+    }
+
+    body.dark-mode header {
+      background-color: var(--color-header-bg-dark);
     }
 
     header img {
@@ -31,9 +63,14 @@
     }
 
     nav {
-      background-color: #a40000;
+      background-color: var(--color-nav-bg-light);
       padding: 10px;
       text-align: center;
+      transition: background-color 0.3s ease;
+    }
+
+    body.dark-mode nav {
+      background-color: var(--color-nav-bg-dark);
     }
 
     nav a {
@@ -41,16 +78,28 @@
       margin: 0 15px;
       text-decoration: none;
       font-weight: bold;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover,
+    nav a:focus {
+      text-decoration: underline;
     }
 
     section {
       padding: 30px 20px;
       max-width: 1000px;
-      margin: auto;
-      background-color: white;
+      margin: 20px auto;
+      background-color: var(--color-section-bg-light);
       box-shadow: 0 0 10px rgba(0,0,0,0.05);
-      margin-top: 20px;
       border-radius: 10px;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    body.dark-mode section {
+      background-color: var(--color-section-bg-dark);
+      box-shadow: 0 0 15px rgba(255,255,255,0.1);
     }
 
     h2 {
@@ -58,33 +107,65 @@
       margin-top: 30px;
     }
 
+    body.dark-mode h2 {
+      color: #ff6f6f;
+    }
+
     table {
       width: 100%;
       border-collapse: collapse;
       margin-top: 15px;
+      color: inherit;
     }
 
     th, td {
-      border: 1px solid #ccc;
+      border: 1px solid var(--color-border-light);
       padding: 12px;
       text-align: center;
+      transition: border-color 0.3s ease;
+    }
+
+    body.dark-mode th, 
+    body.dark-mode td {
+      border-color: var(--color-border-dark);
     }
 
     th {
       background-color: #f0f0f0;
     }
 
+    body.dark-mode th {
+      background-color: #333;
+    }
+
     ul {
       margin-top: 10px;
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    ul li {
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    ul li strong {
+      font-weight: 700;
     }
 
     footer {
-      background-color: #eeeeee;
+      background-color: var(--color-footer-bg-light);
       padding: 20px;
       text-align: center;
       font-size: 0.9em;
-      color: #777;
+      color: var(--color-text-muted-light);
       margin-top: 30px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    body.dark-mode footer {
+      background-color: var(--color-footer-bg-dark);
+      color: var(--color-text-muted-dark);
     }
 
     .assinatura {
@@ -92,6 +173,11 @@
       font-style: italic;
       text-align: right;
       color: #444;
+      transition: color 0.3s ease;
+    }
+
+    body.dark-mode .assinatura {
+      color: #ccc;
     }
 
     .assinatura p {
@@ -102,86 +188,160 @@
       font-size: 0.9em;
       color: #555;
     }
+
+    body.dark-mode .selo {
+      color: #aaa;
+    }
+
+    /* Botão para modo claro/escuro */
+    .toggle-theme {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background-color: rgba(255,255,255,0.3);
+      border: none;
+      padding: 8px 12px;
+      border-radius: 5px;
+      font-weight: 600;
+      cursor: pointer;
+      color: #fff;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      user-select: none;
+      font-size: 0.9rem;
+    }
+
+    .toggle-theme:hover,
+    .toggle-theme:focus {
+      background-color: rgba(255,255,255,0.6);
+      outline: none;
+    }
+
+    body.dark-mode .toggle-theme {
+      background-color: rgba(0,0,0,0.5);
+      color: #fff;
+    }
+
+    body.dark-mode .toggle-theme:hover,
+    body.dark-mode .toggle-theme:focus {
+      background-color: rgba(0,0,0,0.8);
+    }
   </style>
 </head>
 <body>
+  <header>
+    <img 
+      src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Corpo_de_Bombeiros_Militar_de_S%C3%A3o_Paulo_-_bras%C3%A3o.png/200px-Corpo_de_Bombeiros_Militar_de_S%C3%A3o_Paulo_-_bras%C3%A3o.png" 
+      alt="Brasão do Corpo de Bombeiros Militar de São Paulo" 
+      aria-label="Logo do Corpo de Bombeiros Militar de São Paulo"
+    />
+    <h1>Corpo de Bombeiros Militar do Estado de São Paulo</h1>
+    <p>Portal da Transparência Operacional</p>
+    <button class="toggle-theme" id="toggleThemeBtn" aria-label="Alternar modo claro e escuro">Modo Escuro</button>
+  </header>
 
-<header>
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Corpo_de_Bombeiros_Militar_de_S%C3%A3o_Paulo_-_bras%C3%A3o.png/200px-Corpo_de_Bombeiros_Militar_de_S%C3%A3o_Paulo_-_bras%C3%A3o.png" alt="Brasão do Corpo de Bombeiros">
-  <h1>Corpo de Bombeiros do Estado de São Paulo</h1>
-  <p>Portal da Transparência Operacional</p>
-</header>
+  <nav>
+    <a href="#semanal">Dados Semanais</a>
+    <a href="#mensal">Balanço Mensal</a>
+    <a href="#responsavel">Responsável Técnico</a>
+    <a href="#plano">Plano de Transparência</a>
+  </nav>
 
-<nav>
-  <a href="#semanal">Dados Semanais</a>
-  <a href="#mensal">Balanço Mensal</a>
-  <a href="#responsavel">Responsável Técnico</a>
-  <a href="#plano">Plano de Transparência</a>
-</nav>
+  <section id="semanal">
+    <h2>Dados Semanais</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Semana</th>
+          <th>Chamadas Recebidas</th>
+          <th>Ocorrências Atendidas</th>
+          <th>Resgates</th>
+          <th>Tipos de Ocorrência</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>10/06 a 16/06/2025</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>Incêndios (0), Salvamentos (0), Acidentes (0)</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
 
-<section id="semanal">
-  <h2>Dados Semanais</h2>
-  <table>
-    <thead>
-      <tr>
-        <th>Semana</th>
-        <th>Chamadas Recebidas</th>
-        <th>Ocorrências Atendidas</th>
-        <th>Resgates</th>
-        <th>Tipos de Ocorrência</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>10/06 a 16/06/2025</td>
-        <td>2.184</td>
-        <td>1.947</td>
-        <td>452</td>
-        <td>Incêndios (138), Salvamentos (172), Acidentes (96)</td>
-      </tr>
-    </tbody>
-  </table>
-</section>
+  <section id="mensal">
+    <h2>Balanço Mensal - Maio/2025</h2>
+    <ul>
+      <li><strong>Total de Chamadas:</strong> 0</li>
+      <li><strong>Total de Ocorrências:</strong> 0</li>
+      <li><strong>Resgates Emergenciais:</strong> 0</li>
+      <li><strong>Comparativo com Abril:</strong> 0% em chamadas / 0% em ocorrências</li>
+      <li><strong>Análise:</strong> Dados indisponíveis para o período.</li>
+    </ul>
+  </section>
 
-<section id="mensal">
-  <h2>Balanço Mensal - Maio/2025</h2>
-  <ul>
-    <li><strong>Total de Chamadas:</strong> 8.529</li>
-    <li><strong>Total de Ocorrências:</strong> 7.842</li>
-    <li><strong>Resgates Emergenciais:</strong> 1.685</li>
-    <li><strong>Comparativo com Abril:</strong> +7,2% em chamadas / +6,1% em ocorrências</li>
-    <li><strong>Análise:</strong> Aumento relacionado a baixa umidade e alta incidência de incêndios urbanos e florestais.</li>
-  </ul>
-</section>
+  <section id="responsavel">
+    <h2>Responsável Técnico-Institucional</h2>
+    <p><strong>Nome:</strong> Capitão Lancelotti</p>
+    <p><strong>Email:</strong> contato@cbmsp.sp.gov.br</p>
+    <p><strong>Telefone:</strong> (11) 1234-5678</p>
+  </section>
 
-<section id="responsavel">
-  <h2>Responsável Técnico-Institucional</h2>
-  <p><strong>Nome:</strong> Capitão Lancelotti</p>
-  <p><strong>Email:</strong> contato: @mrrogerio17</p>
-  <p><strong>Telefone:</strong> apelido: Rogeriogamer17</p>
-</section>
+  <section id="plano">
+    <h2>Plano de Transparência</h2>
+    <p>
+      Os dados são extraídos do Sistema Integrado de Ocorrências do Corpo de Bombeiros Militar do Estado de São Paulo (SIO-CBM-SP) e atualizados semanalmente.
+      As publicações seguem critérios de segurança, legalidade e acessibilidade, conforme a Portaria nº 002/2025 do Ministério da Justiça e Segurança Pública.
+    </p>
+    <p>
+      As informações protegidas por sigilo legal ou que possam comprometer investigações ou a privacidade dos envolvidos são omitidas, conforme previsto em lei.
+    </p>
 
-<section id="plano">
-  <h2>Plano de Transparência</h2>
-  <p>
-    Os dados são extraídos do Sistema Integrado de Ocorrências do Corpo de Bombeiros do Estado de São Paulo (SIO-CBM-SP) e atualizados semanalmente.
-    As publicações seguem critérios de segurança, legalidade e acessibilidade, conforme a Portaria nº 002/2025 do Ministério da Justiça e Segurança Pública.
-  </p>
-  <p>
-    As informações protegidas por sigilo legal ou que possam comprometer investigações ou a privacidade dos envolvidos são omitidas, conforme previsto em lei.
-  </p>
+    <div class="assinatura">
+      <p>Assinado eletronicamente por:</p>
+      <p><strong>Capitão Lancelotti</strong></p>
+      <p class="selo">Responsável Técnico - Corpo de Bombeiros do Estado de São Paulo</p>
+      <p class="selo">Emitido em: 17 de junho de 2025</p>
+    </div>
+  </section>
 
-  <div class="assinatura">
-    <p>Assinado eletronicamente por:</p>
-    <p><strong>Capitão Lancelotti</strong></p>
-    <p class="selo">Responsável Técnico - Corpo de Bombeiros do Estado de São Paulo</p>
-    <p class="selo">Emitido em: 17 de junho de 2025</p>
-  </div>
-</section>
+  <footer>
+    &copy; 2025 Corpo de Bombeiros Militar do Estado de São Paulo • Secretaria de Segurança Pública • Governo do Estado de São Paulo
+  </footer>
 
-<footer>
-  &copy; 2025 Corpo de Bombeiros Militar do Estado de São Paulo • Secretaria de Segurança Pública • Governo do Estado de São Paulo
-</footer>
+  <script>
+    const toggleBtn = document.getElementById('toggleThemeBtn');
+    const body = document.body;
 
+    function updateButtonText() {
+      if(body.classList.contains('dark-mode')) {
+        toggleBtn.textContent = 'Modo Claro';
+      } else {
+        toggleBtn.textContent = 'Modo Escuro';
+      }
+    }
+
+    toggleBtn.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+      updateButtonText();
+
+      // Armazenar a preferência no localStorage
+      if(body.classList.contains('dark-mode')) {
+        localStorage.setItem('theme', 'dark');
+      } else {
+        localStorage.setItem('theme', 'light');
+      }
+    });
+
+    // Verificar a preferência salva no carregamento da página
+    window.addEventListener('DOMContentLoaded', () => {
+      const savedTheme = localStorage.getItem('theme');
+      if(savedTheme === 'dark') {
+        body.classList.add('dark-mode');
+      }
+      updateButtonText();
+    });
+  </script>
 </body>
 </html>
