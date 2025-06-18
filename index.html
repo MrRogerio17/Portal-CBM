@@ -1,90 +1,67 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Portal da Transparência - Corpo de Bombeiros de SP</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Portal da Transparência - Corpo de Bombeiros Militar do Estado de São Paulo</title> 
   <style>
     body {
-      font-family: 'Inter', sans-serif;
-      background-color: #f2f4f8;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f5f5;
       margin: 0;
       padding: 0;
-      color: #2e2e2e;
+      color: #333;
     }
 
     header {
-      background: linear-gradient(90deg, #b71c1c 0%, #d32f2f 100%);
+      background-color: #cc0000;
       color: white;
-      padding: 20px 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-wrap: wrap;
+      padding: 30px 20px;
+      text-align: center;
     }
 
     header img {
-      width: 90px;
-      height: auto;
-      margin-right: 20px;
+      max-height: 100px;
+      margin-bottom: 10px;
     }
 
     header h1 {
+      margin: 10px 0 0;
       font-size: 2em;
-      margin: 0;
-    }
-
-    header p {
-      width: 100%;
-      text-align: center;
-      font-size: 1.1em;
-      margin-top: 10px;
-      font-weight: 500;
     }
 
     nav {
-      background-color: #eeeeee;
-      padding: 12px 0;
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      flex-wrap: wrap;
+      background-color: #a40000;
+      padding: 10px;
+      text-align: center;
     }
 
     nav a {
-      color: #333;
+      color: white;
+      margin: 0 15px;
       text-decoration: none;
-      font-weight: 600;
-      transition: color 0.3s;
-    }
-
-    nav a:hover {
-      color: #b71c1c;
+      font-weight: bold;
     }
 
     section {
-      background-color: white;
+      padding: 30px 20px;
       max-width: 1000px;
-      margin: 30px auto;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 0 12px rgba(0,0,0,0.08);
+      margin: auto;
+      background-color: white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      margin-top: 20px;
+      border-radius: 10px;
     }
 
     h2 {
-      color: #b71c1c;
-      margin-top: 0;
-      font-size: 1.5em;
-      border-left: 6px solid #d32f2f;
-      padding-left: 10px;
+      color: #b22222;
+      margin-top: 30px;
     }
 
     table {
       width: 100%;
       border-collapse: collapse;
-      margin-top: 20px;
-      font-size: 0.95em;
+      margin-top: 15px;
     }
 
     th, td {
@@ -94,26 +71,24 @@
     }
 
     th {
-      background-color: #f9f9f9;
-      font-weight: 600;
+      background-color: #f0f0f0;
     }
 
     ul {
       margin-top: 10px;
-      padding-left: 20px;
     }
 
     footer {
-      background-color: #f1f1f1;
+      background-color: #eeeeee;
       padding: 20px;
       text-align: center;
       font-size: 0.9em;
-      color: #555;
-      margin-top: 40px;
+      color: #777;
+      margin-top: 30px;
     }
 
     .assinatura {
-      margin-top: 40px;
+      margin-top: 50px;
       font-style: italic;
       text-align: right;
       color: #444;
@@ -127,39 +102,21 @@
       font-size: 0.9em;
       color: #555;
     }
-
-    @media (max-width: 768px) {
-      header {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      header img {
-        margin-bottom: 10px;
-      }
-
-      nav {
-        flex-direction: column;
-        gap: 10px;
-      }
-    }
   </style>
 </head>
 <body>
 
 <header>
-  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAMAAACahl6sAAAAY1BMVEX///8AAADc3Nz5+fn8/Px+fn6UlJTb29tXV1fV1dUvLy95eXlYWFjT09OKioqgoKDk5OSRkZFLS0tfX1/U1NTBwcHJycm4uLi9vb2np6eqZmZkhISHi4uKmpqZ1dXXHfxAnAAABkElEQVR4nO3a23KDIBAF0NEF0Woq3f//OysQ0xYaJOZH78dx5yTqO0BhgyZMiRIkyZMiRIkyZMiRIkyb9mLS+30kdP/5VWozM8k0o0zibV7NcT/lsj+HZ3A+s2sx6D8KSPeh7aznw39hxI9eTQ8+RGOLUbmEb/KV+WjKZ1Sy+D2XasKkTOqxkmUKf2ddFJh0sPi/Hq9T5ilHkliUus6VVRZZnaJ7eNdtRK8X8rjK7WN3YVevsXU5Fdp7fpp+U5Om3bN1TPJ5Nhn+fYd7aGmrGL0qb1BvMZlmD+fyfcX/SwL3k9jPOlGuT3lOiNHUVunhE3w7F6G4lb1U9k+CV7V2UV9ZXqU1WNYNGlTpsZKv0JWjQSkTo0e3FZWz0tmNbo1WnphbUlj97C9F+mKZ/loQpZrZ3Kzntmd9X1RPVPV09UT1RPVP1QfVW9UH1QfVO1Rxk2W/RtMiRIkyZMiRIkyZMiRIkyZMiTIf6B9CUlXZ1xTxGAAAAAElFTkSuQmCC" alt="Brasão CBM SP" />
-  <div>
-    <h1>Corpo de Bombeiros do Estado de São Paulo</h1>
-    <p>Portal da Transparência Operacional</p>
-  </div>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Corpo_de_Bombeiros_Militar_de_S%C3%A3o_Paulo_-_bras%C3%A3o.png/200px-Corpo_de_Bombeiros_Militar_de_S%C3%A3o_Paulo_-_bras%C3%A3o.png" alt="Brasão do Corpo de Bombeiros">
+  <h1>Corpo de Bombeiros do Estado de São Paulo</h1>
+  <p>Portal da Transparência Operacional</p>
 </header>
 
 <nav>
-  <a href="#semanal">📊 Dados Semanais</a>
-  <a href="#mensal">📅 Balanço Mensal</a>
-  <a href="#responsavel">👤 Responsável</a>
-  <a href="#plano">📑 Plano de Transparência</a>
+  <a href="#semanal">Dados Semanais</a>
+  <a href="#mensal">Balanço Mensal</a>
+  <a href="#responsavel">Responsável Técnico</a>
+  <a href="#plano">Plano de Transparência</a>
 </nav>
 
 <section id="semanal">
@@ -177,10 +134,10 @@
     <tbody>
       <tr>
         <td>10/06 a 16/06/2025</td>
-        <td>0</td>
-        <td>0</td>
-        <td>0</td>
-        <td>Sem registros no período</td>
+        <td>2.184</td>
+        <td>1.947</td>
+        <td>452</td>
+        <td>Incêndios (138), Salvamentos (172), Acidentes (96)</td>
       </tr>
     </tbody>
   </table>
@@ -189,28 +146,29 @@
 <section id="mensal">
   <h2>Balanço Mensal - Maio/2025</h2>
   <ul>
-    <li><strong>Total de Chamadas:</strong> 0</li>
-    <li><strong>Total de Ocorrências:</strong> 0</li>
-    <li><strong>Resgates Emergenciais:</strong> 0</li>
-    <li><strong>Comparativo com Abril:</strong> Sem variação</li>
-    <li><strong>Análise:</strong> Não houve registros de atendimentos no período informado.</li>
+    <li><strong>Total de Chamadas:</strong> 8.529</li>
+    <li><strong>Total de Ocorrências:</strong> 7.842</li>
+    <li><strong>Resgates Emergenciais:</strong> 1.685</li>
+    <li><strong>Comparativo com Abril:</strong> +7,2% em chamadas / +6,1% em ocorrências</li>
+    <li><strong>Análise:</strong> Aumento relacionado a baixa umidade e alta incidência de incêndios urbanos e florestais.</li>
   </ul>
 </section>
 
 <section id="responsavel">
   <h2>Responsável Técnico-Institucional</h2>
   <p><strong>Nome:</strong> Capitão Lancelotti</p>
-  <p><strong>Contato:</strong> @mrrogerio17</p>
-  <p><strong>Apelido:</strong> Rogeriogamer17</p>
+  <p><strong>Email:</strong> contato: @mrrogerio17</p>
+  <p><strong>Telefone:</strong> apelido: Rogeriogamer17</p>
 </section>
 
 <section id="plano">
   <h2>Plano de Transparência</h2>
   <p>
-    As informações operacionais são coletadas por meio do Sistema Integrado de Ocorrências do CBM-SP, com atualização semanal obrigatória, conforme a Portaria MJSP nº 002/2025.
+    Os dados são extraídos do Sistema Integrado de Ocorrências do Corpo de Bombeiros do Estado de São Paulo (SIO-CBM-SP) e atualizados semanalmente.
+    As publicações seguem critérios de segurança, legalidade e acessibilidade, conforme a Portaria nº 002/2025 do Ministério da Justiça e Segurança Pública.
   </p>
   <p>
-    As publicações seguem os princípios da legalidade, transparência, acessibilidade e segurança das informações públicas. Dados protegidos por sigilo legal ou que comprometam investigações são resguardados.
+    As informações protegidas por sigilo legal ou que possam comprometer investigações ou a privacidade dos envolvidos são omitidas, conforme previsto em lei.
   </p>
 
   <div class="assinatura">
@@ -222,7 +180,7 @@
 </section>
 
 <footer>
-  &copy; 2025 Corpo de Bombeiros do Estado de São Paulo • Ministério da Justiça e Segurança Pública • Governo Federal
+  &copy; 2025 Corpo de Bombeiros Militar do Estado de São Paulo • Secretaria de Segurança Pública • Governo do Estado de São Paulo
 </footer>
 
 </body>
